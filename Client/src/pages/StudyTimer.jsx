@@ -88,7 +88,8 @@ function Timer({ id, name, onRemove, initialDuration = 1800, onDurationChange })
                 borderRadius: "10px",
                 width: "280px",
                 boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
-                backgroundColor: "#fff"
+                backgroundColor: "#fff",
+                color: 'black'
             }}
         >
             <div
@@ -202,7 +203,8 @@ function Timer({ id, name, onRemove, initialDuration = 1800, onDurationChange })
                             fontSize: "2.5rem",
                             margin: "0.5rem 0",
                             cursor: "pointer",
-                            fontFamily: "'Courier New', monospace"
+                            fontFamily: "'Courier New', monospace",
+                            color: "black"
                         }}
                     >
                         {formatTime()}
@@ -217,7 +219,7 @@ function Timer({ id, name, onRemove, initialDuration = 1800, onDurationChange })
                         padding: "0.5rem 1rem",
                         fontSize: "1rem",
                         backgroundColor: isRunning ? "#ff4444" : "#4CAF50",
-                        color: "white",
+                        color: "black",
                         border: "none",
                         borderRadius: "4px",
                         cursor: "pointer",
@@ -283,7 +285,7 @@ export default function TimerApp() {
         >
             {/* 🔔 Audio element */}
             <audio ref={audioRef} src="/alarm.mp3" preload="auto" />
-            <h1 style={{ textAlign: "center", color: "#333", marginBottom: "2rem" }}>Timers</h1>
+            <h1 style={{ textAlign: "center", color: "white", marginBottom: "2rem" }}>Timers</h1>
 
             <div style={{ textAlign: "center", margin: "2rem 0" }}>
                 <button
