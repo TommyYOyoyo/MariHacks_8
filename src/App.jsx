@@ -1,10 +1,7 @@
-
-import DefaultPage from "./DefaultPage.jsx";
+import DefaultPage from "./DefaultPage.jsx"
 
 export default function App() {
-    return (
-        <DefaultPage></DefaultPage>
-    );
+  return <DefaultPage></DefaultPage>
 }
 
 /*import { useState } from 'react';
