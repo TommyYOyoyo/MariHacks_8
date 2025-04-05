@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 
-const Timer = ({ id, name, onRemove, initialDuration = 1800, onDurationChange }) => {
+function Timer({ id, name, onRemove, initialDuration = 1800, onDurationChange }) {
     const [seconds, setSeconds] = useState(initialDuration)
     const [isRunning, setIsRunning] = useState(false)
     const [timerName, setTimerName] = useState(name)
@@ -246,7 +246,7 @@ const Timer = ({ id, name, onRemove, initialDuration = 1800, onDurationChange })
     )
 }
 
-const TimerApp = () => {
+export default function TimerApp() {
     const [timers, setTimers] = useState([])
     const [nextId, setNextId] = useState(1)
 
@@ -326,5 +326,3 @@ const TimerApp = () => {
         </div>
     )
 }
-
-export default TimerApp

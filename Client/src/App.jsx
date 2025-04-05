@@ -4,7 +4,6 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Login from "./pages/Login.jsx"
 import Register from "./pages/Register.jsx"
 import DailyCommissions from "./pages/DailyCommissions.jsx"
-// import Calendar from "./components/Calendar.jsx"
 import StudyTimer from "./pages/StudyTimer.jsx"
 
 const router = createBrowserRouter([
@@ -12,7 +11,9 @@ const router = createBrowserRouter([
         path: "/",
         children: [
             { path: "login", element: <Login /> },
-            { path: "register", element: <Register /> }
+            { path: "register", element: <Register /> },
+            { path: "daily", element: <DailyCommissions /> },
+            { path: "timer", element: <StudyTimer /> }
         ]
     }
 ])
