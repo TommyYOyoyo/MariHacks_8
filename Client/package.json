@@ -11,13 +11,16 @@
     "start": "node Server/index.js"
   },
   "dependencies": {
+    "axios": "^1.8.4",
     "bcrypt": "^5.1.1",
+    "boostrap": "^2.0.0",
     "env": "^0.0.2",
     "express": "^5.1.0",
     "mongodb": "^6.15.0",
     "mongoose": "^8.13.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.5.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

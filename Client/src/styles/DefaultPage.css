@@ -61,7 +61,7 @@ html, body {
     color: white;
 }
 
-#email {
+#email, #username {
     width: 94%;
     padding: 10px;
     font-size: 15px;
@@ -69,6 +69,7 @@ html, body {
     border: 2px solid white;
     border-radius: 10px;
     color: white;
+    margin-bottom: 5px;
 }
 
 .passwordBox {
@@ -106,7 +107,7 @@ html, body {
     margin: 15px 0;
 }
 
-#redirects a, #forgetPassword button {
+#redirects a {
     font-size: 15px;
     text-decoration: none;
     color: aquamarine;
@@ -138,13 +139,6 @@ html, body {
     animation: buttonAnimation 0.3s linear forwards;
 }
 
-#emailWarning {
-    display: none;
-}
-
 .warning {
-    color: red;
-    font-size: 12px;
-    min-height: 18px;
-    margin: 4px 0;
+    display: none;
 }

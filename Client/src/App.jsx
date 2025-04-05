@@ -1,13 +1,17 @@
-import DefaultPage from "./components/DefaultPage.jsx"
-import React from 'react';
-import DailyCommissions from "./components/DailyCommissions.jsx"
-import Calendar from "./components/Calendar.jsx"
-import StudyTimer from "./components/StudyTimer.jsx"
+import Register from "./components/defaultPage/Register.jsx";
+import Login from "./components/defaultPage/Login.jsx";
+import DailyCommissions from "./components/DailyCommissions.jsx";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function App() {
-    return (
-        <>
-            <DefaultPage></DefaultPage>
-        </>
-    )
+  return(   
+    <>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/register" element={<Register/>} />
+                <Route path="/login" element={<Login/>} />
+            </Routes>
+        </BrowserRouter>
+    </>
+  );
 }
