@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import "./DailyCommissions.css";
 import axios from 'axios'
 
 function DailyCommissions() {
