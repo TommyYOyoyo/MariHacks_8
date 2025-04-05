@@ -1,94 +1,83 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react"
 
-const Timer = ({
-    id,
-    name,
-    onRemove,
-    initialDuration = 1800,
-    onDurationChange,
-}) => {
-    const [seconds, setSeconds] = useState(initialDuration);
-    const [isRunning, setIsRunning] = useState(false);
-    const [timerName, setTimerName] = useState(name);
-    const [isEditingName, setIsEditingName] = useState(false);
-    const [isEditingDuration, setIsEditingDuration] = useState(false);
+function Timer({ id, name, onRemove, initialDuration = 1800, onDurationChange }) {
+    const [seconds, setSeconds] = useState(initialDuration)
+    const [isRunning, setIsRunning] = useState(false)
+    const [timerName, setTimerName] = useState(name)
+    const [isEditingName, setIsEditingName] = useState(false)
+    const [isEditingDuration, setIsEditingDuration] = useState(false)
 
-    const audioRef = useRef(null); // 🔔 Audio reference
+    const audioRef = useRef(null) // 🔔 Audio reference
 
-    const hours = Math.floor(seconds / 3600);
-    const mins = Math.floor((seconds % 3600) / 60);
-    const secs = seconds % 60;
+    const hours = Math.floor(seconds / 3600)
+    const mins = Math.floor((seconds % 3600) / 60)
+    const secs = seconds % 60
 
     useEffect(() => {
-        let timer = null;
+        let timer = null
         if (isRunning && seconds > 0) {
             timer = setInterval(() => {
-                setSeconds((prev) => prev - 1);
-            }, 1000);
+                setSeconds(prev => prev - 1)
+            }, 1000)
         } else if (isRunning && seconds === 0) {
-            setIsRunning(false);
+            setIsRunning(false)
             // 🔔 Play the ringtone!
             if (audioRef.current) {
-                audioRef.current.currentTime = 0;
-                audioRef.current.play().catch((err) => {
-                    console.warn("Could not play audio:", err);
-                });
+                audioRef.current.currentTime = 0
+                audioRef.current.play().catch(err => {
+                    console.warn("Could not play audio:", err)
+                })
             }
         }
-        return () => clearInterval(timer);
-    }, [isRunning, seconds]);
+        return () => clearInterval(timer)
+    }, [isRunning, seconds])
 
     const handleReset = () => {
-        setIsRunning(false);
-        setSeconds(initialDuration);
-    };
+        setIsRunning(false)
+        setSeconds(initialDuration)
+    }
 
     const formatTime = () => {
         return [
             hours.toString().padStart(2, "0"),
             mins.toString().padStart(2, "0"),
-            secs.toString().padStart(2, "0"),
-        ].join(":");
-    };
-
-    const handleReset = () => {
-        setIsRunning(false);
-        setSeconds(initialDuration);
-    };
+            secs.toString().padStart(2, "0")
+        ].join(":")
+    }
 
     const handleNameBlur = () => {
-        setIsEditingName(false);
-    };
+        setIsEditingName(false)
+    }
 
     const handleDurationBlur = () => {
-        setIsEditingDuration(false);
-        const newDuration = hours * 3600 + mins * 60 + secs;
-        setSeconds(newDuration);
-        onDurationChange(id, newDuration);
-    };
+        setIsEditingDuration(false)
+        const newDuration = hours * 3600 + mins * 60 + secs
+        setSeconds(newDuration)
+        onDurationChange(id, newDuration)
+    }
 
     const updateTimeUnit = (unit, value) => {
-        let newHours = hours;
-        let newMins = mins;
-        let newSecs = secs;
+        let newHours = hours
+        let newMins = mins
+        let newSecs = secs
 
         switch (unit) {
             case "hours":
-                newHours = Math.max(0, Math.min(99, value));
-                break;
+                newHours = Math.max(0, Math.min(99, value))
+                break
             case "minutes":
-                newMins = Math.max(0, Math.min(59, value));
-                break;
+                newMins = Math.max(0, Math.min(59, value))
+                break
             case "seconds":
-                newSecs = Math.max(0, Math.min(59, value));
-                break;
+                newSecs = Math.max(0, Math.min(59, value))
+                break
             default:
-                break;
+                break
         }
 
-        const newDuration = newHours * 3600 + newMins * 60 + newSecs;
-        setSeconds(newDuration);
-    };
+        const newDuration = newHours * 3600 + newMins * 60 + newSecs
+        setSeconds(newDuration)
+    }
 
     return (
         <div
@@ -99,21 +88,21 @@ const Timer = ({
                 borderRadius: "10px",
                 width: "280px",
                 boxShadow: "0 2px 5px rgba(0,0,0,0.1)",
-                backgroundColor: "#fff",
+                backgroundColor: "#fff"
             }}
         >
             <div
                 style={{
                     display: "flex",
                     justifyContent: "space-between",
-                    alignItems: "center",
+                    alignItems: "center"
                 }}
             >
                 {isEditingName ? (
                     <input
                         type="text"
                         value={timerName}
-                        onChange={(e) => setTimerName(e.target.value)}
+                        onChange={e => setTimerName(e.target.value)}
                         onBlur={handleNameBlur}
                         autoFocus
                         style={{
@@ -122,7 +111,7 @@ const Timer = ({
                             width: "100%",
                             textAlign: "center",
                             border: "1px solid #ccc",
-                            borderRadius: "4px",
+                            borderRadius: "4px"
                         }}
                     />
                 ) : (
@@ -134,7 +123,7 @@ const Timer = ({
                             flexGrow: 1,
                             overflow: "hidden",
                             textOverflow: "ellipsis",
-                            whiteSpace: "nowrap",
+                            whiteSpace: "nowrap"
                         }}
                     >
                         {timerName}
@@ -148,7 +137,7 @@ const Timer = ({
                         cursor: "pointer",
                         fontSize: "1.2rem",
                         color: "#ff4444",
-                        marginLeft: "8px",
+                        marginLeft: "8px"
                     }}
                 >
                     ×
@@ -157,15 +146,11 @@ const Timer = ({
 
             <div style={{ margin: "1.5rem 0" }}>
                 {isEditingDuration ? (
-                    <div
-                        style={{ display: "flex", justifyContent: "center", gap: "5px" }}
-                    >
+                    <div style={{ display: "flex", justifyContent: "center", gap: "5px" }}>
                         <input
                             type="number"
                             value={hours}
-                            onChange={(e) =>
-                                updateTimeUnit("hours", parseInt(e.target.value) || 0)
-                            }
+                            onChange={e => updateTimeUnit("hours", parseInt(e.target.value) || 0)}
                             onBlur={handleDurationBlur}
                             min="0"
                             max="99"
@@ -174,16 +159,14 @@ const Timer = ({
                                 fontSize: "1.5rem",
                                 textAlign: "center",
                                 border: "1px solid #ccc",
-                                borderRadius: "4px",
+                                borderRadius: "4px"
                             }}
                         />
                         <span style={{ fontSize: "1.5rem" }}>:</span>
                         <input
                             type="number"
                             value={mins}
-                            onChange={(e) =>
-                                updateTimeUnit("minutes", parseInt(e.target.value) || 0)
-                            }
+                            onChange={e => updateTimeUnit("minutes", parseInt(e.target.value) || 0)}
                             onBlur={handleDurationBlur}
                             min="0"
                             max="59"
@@ -192,16 +175,14 @@ const Timer = ({
                                 fontSize: "1.5rem",
                                 textAlign: "center",
                                 border: "1px solid #ccc",
-                                borderRadius: "4px",
+                                borderRadius: "4px"
                             }}
                         />
                         <span style={{ fontSize: "1.5rem" }}>:</span>
                         <input
                             type="number"
                             value={secs}
-                            onChange={(e) =>
-                                updateTimeUnit("seconds", parseInt(e.target.value) || 0)
-                            }
+                            onChange={e => updateTimeUnit("seconds", parseInt(e.target.value) || 0)}
                             onBlur={handleDurationBlur}
                             min="0"
                             max="59"
@@ -210,7 +191,7 @@ const Timer = ({
                                 fontSize: "1.5rem",
                                 textAlign: "center",
                                 border: "1px solid #ccc",
-                                borderRadius: "4px",
+                                borderRadius: "4px"
                             }}
                         />
                     </div>
@@ -221,7 +202,7 @@ const Timer = ({
                             fontSize: "2.5rem",
                             margin: "0.5rem 0",
                             cursor: "pointer",
-                            fontFamily: "'Courier New', monospace",
+                            fontFamily: "'Courier New', monospace"
                         }}
                     >
                         {formatTime()}
@@ -240,7 +221,7 @@ const Timer = ({
                         border: "none",
                         borderRadius: "4px",
                         cursor: "pointer",
-                        minWidth: "80px",
+                        minWidth: "80px"
                     }}
                 >
                     {isRunning ? "Stop" : "Start"}
@@ -255,41 +236,39 @@ const Timer = ({
                         border: "none",
                         borderRadius: "4px",
                         cursor: "pointer",
-                        minWidth: "80px",
+                        minWidth: "80px"
                     }}
                 >
                     Reset
                 </button>
             </div>
         </div>
-    );
-};
+    )
+}
 
-const TimerApp = () => {
-    const [timers, setTimers] = useState([]);
-    const [nextId, setNextId] = useState(1);
+export default function TimerApp() {
+    const [timers, setTimers] = useState([])
+    const [nextId, setNextId] = useState(1)
 
     const addTimer = () => {
         const newTimer = {
             id: nextId,
             name: `Timer ${nextId}`,
-            duration: 1800, // 30 minutes in seconds
-        };
-        setTimers([...timers, newTimer]);
-        setNextId(nextId + 1);
-    };
+            duration: 1800 // 30 minutes in seconds
+        }
+        setTimers([...timers, newTimer])
+        setNextId(nextId + 1)
+    }
 
-    const removeTimer = (id) => {
-        setTimers(timers.filter((timer) => timer.id !== id));
-    };
+    const removeTimer = id => {
+        setTimers(timers.filter(timer => timer.id !== id))
+    }
 
     const handleDurationChange = (id, newDuration) => {
         setTimers(
-            timers.map((timer) =>
-                timer.id === id ? { ...timer, duration: newDuration } : timer
-            )
-        );
-    };
+            timers.map(timer => (timer.id === id ? { ...timer, duration: newDuration } : timer))
+        )
+    }
 
     return (
         <div
@@ -298,14 +277,12 @@ const TimerApp = () => {
                 margin: "0 auto",
                 padding: "2rem",
                 fontFamily: "Arial, sans-serif",
-                minHeight: "100vh",
+                minHeight: "100vh"
             }}
         >
             {/* 🔔 Audio element */}
             <audio ref={audioRef} src="/alarm.mp3" preload="auto" />
-            <h1 style={{ textAlign: "center", color: "#333", marginBottom: "2rem" }}>
-                Timers
-            </h1>
+            <h1 style={{ textAlign: "center", color: "#333", marginBottom: "2rem" }}>Timers</h1>
 
             <div style={{ textAlign: "center", margin: "2rem 0" }}>
                 <button
@@ -319,7 +296,7 @@ const TimerApp = () => {
                         borderRadius: "6px",
                         cursor: "pointer",
                         boxShadow: "0 2px 5px rgba(0,0,0,0.2)",
-                        transition: "all 0.2s",
+                        transition: "all 0.2s"
                     }}
                 >
                     + Add Timer
@@ -332,10 +309,10 @@ const TimerApp = () => {
                     flexWrap: "wrap",
                     justifyContent: "center",
                     gap: "1.5rem",
-                    padding: "1rem",
+                    padding: "1rem"
                 }}
             >
-                {timers.map((timer) => (
+                {timers.map(timer => (
                     <Timer
                         key={timer.id}
                         id={timer.id}
@@ -347,7 +324,5 @@ const TimerApp = () => {
                 ))}
             </div>
         </div>
-    );
-};
-
-export default TimerApp;
+    )
+}
