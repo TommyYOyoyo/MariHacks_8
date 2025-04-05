@@ -27,12 +27,8 @@ export default function DailyCommissions() {
     return (
         <div>
             <header>Today Commission</header>
-            <ul>
-        {users.map(user => (
-          <li key={user._id}>{user.commissionToComplete}</li>
-        ))}
-      </ul>
-            <h4>--- {commissionToComplete} (Not done)</h4>
+            
+            <h4>--- {"Study 1h (Study Timer)"} (Not done)</h4>
         </div>
     )
 }
