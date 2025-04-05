@@ -1,43 +1,21 @@
 @keyframes popUp {
-    0% {
-        opacity: 0;
-    }
-    40% {
-        opacity: 1;
-    }
-    60% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-        display: none;
-    }
+    0% { opacity: 0; }
+    40% { opacity: 1; }
+    60% { opacity: 1; }
+    100% { opacity: 0; display: none; }
 }
 
 @keyframes formAnimation {
-    0% {
-        opacity: 0;
-        display: none;
-    }
-    90% {
-        opacity: 0;
-        display: none;
-    }
-    100% {
-        opacity: 1;
-        backdrop-filter: blur(10px);
-    }
+    0% { opacity: 0; display: none; }
+    90% { opacity: 0; display: none; }
+    100% { opacity: 1; backdrop-filter: blur(10px); }
 }
 
 @keyframes buttonAnimation {
-    to {
-        background-color: rgba(0, 85, 131, 0.75);
-        color: white;
-    }
+    to { background-color: rgba(0, 85, 131, 0.75); color: white; }
 }
 
-html,
-body {
+html, body {
     margin: 0;
     padding: 0;
     width: 100%;
@@ -57,7 +35,7 @@ body {
     background-position: center;
     background-size: cover;
 
-    font-family: "Quicksand", sans-serif;
+    font-family: 'Quicksand', sans-serif;
 }
 
 #title {
@@ -124,11 +102,11 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 0 !important;
     margin: 15px 0;
 }
 
-#redirects a,
-#forgetPassword button {
+#redirects a, #forgetPassword button {
     font-size: 15px;
     text-decoration: none;
     color: aquamarine;
