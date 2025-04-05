@@ -13,8 +13,8 @@ export default function Homepage() {
     const navItems = [
         { id: "timer", icon: "⏰", label: "Timer" },
         { id: "calendar", icon: "📅", label: "Calendar" },
-        { id: "daily", icon: "🎯", label: "Mission" },
-        { id: "board", icon: "📋", label: "Whiteboard" },
+        { id: "mission", icon: "🎯", label: "Mission" },
+        { id: "whiteboard", icon: "📋", label: "Whiteboard" },
     ]
 
     return (
