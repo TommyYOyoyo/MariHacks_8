@@ -2,6 +2,12 @@
 
 const mongoose = require("mongoose");
 
+function getRandomInt(min, max) {
+    min = Math.ceil(min)
+    max = Math.floor(max)
+    return Math.floor(Math.random() * (max - min + 1)) + min
+}
+
 const userSchema = new mongoose.Schema(
         {
             username: String,                           // Username
@@ -31,7 +37,7 @@ const userSchema = new mongoose.Schema(
 
             commissionToComplete:{
                 type: String,
-                default: ""
+                default: "Study 1h (Study Timer)"
             }
                 // Insert users template var here
         }

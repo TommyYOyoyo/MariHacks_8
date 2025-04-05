@@ -22,13 +22,18 @@ export default function DailyCommissions() {
         fetchData()
     }, [])
 
-    const commissions = [{ commissionName: "Study 1h with the study timer", commissionExp: 10 }]
-    const [commissionToComplete, setCommissionToComplete] = useState(
-        commissions[getRandomInt(0, commissions.length - 1)].commissionName
-    )
+    // const commissions = [{ commissionName: "Study 1h with the study timer", commissionExp: 10 }]
+    // const [commissionToComplete, setCommissionToComplete] = useState(
+    //     commissions[getRandomInt(0, commissions.length - 1)].commissionName
+    // )
     return (
         <div>
             <header>Today Commission</header>
+            <ul>
+        {users.map(user => (
+          <li key={user._id}>{user.commissionToComplete}</li>
+        ))}
+      </ul>
             <h4>--- {commissionToComplete} (Not done)</h4>
         </div>
     )
