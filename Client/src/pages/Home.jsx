@@ -30,6 +30,7 @@ export default function Homepage() {
                             key={item.id}
                             className={`nav-item ${activeTab === item.id ? "active" : ""}`}
                             onClick={() => {
+                                setActiveTab(item.id)
                                 navigate(`${item.id}`)
                             }}
                         >
