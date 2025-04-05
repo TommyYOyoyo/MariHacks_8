@@ -3,10 +3,13 @@ const app = express();
 const cors = require('cors');
 const { connect } = require("./database/connect.js");
 const UserModel = require('./database/schemas/User.js')
+const { registerUser } = require("./database/registerUser.js");
+const bcrypt = require("bcrypt");
 const http = require('http');
 const { Server } = require('socket.io');
 
 app.use(cors());
+app.use(express.json());
 
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -53,3 +56,29 @@ app.get('/getUsers', async (req, res) => {
 //     }
 //     fetchData();
 // }, [])
+
+app.post("/register", (req, res) => {
+    registerUser(req.body.username, req.body.password, req.body.email)
+    .then(users => res.json(users))
+    .catch(err => res.json(err));
+});
+
+app.post("/login", (req, res) => {
+    const { email, password } = req.body;
+    UserModel.findOne({ email: email })
+    .then(user => {
+        if (user) {
+            bcrypt.compare(password, user.password)
+            .then(isMatch => {
+                if (isMatch) {
+                    res.json(user);
+                } else {
+                    res.json("Incorrect password");
+                }
+            })
+            .catch(err => res.status(400).json(err));
+        } else {
+            res.json("User not found");
+        }
+    })
+});

@@ -1,7 +1,6 @@
 // User registration function, for new users
 
-const mongoose = require("mongoose");
-const User = require("./schemas/User.js");
+const User = require("./models/User.js");
 const bcrypt = require("bcrypt");
 
 const saltRounds = 10;

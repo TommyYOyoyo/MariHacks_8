@@ -1,10 +1,17 @@
 import DefaultPage from "./components/defaultPage/DefaultPage.jsx"
-import DailyCommissions from "./components/dailyCommissions/DailyCommissions.jsx"
+import Register from "./components/defaultPage/Register.jsx";
+import Login from "./components/defaultPage/Login.jsx";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function App() {
-  return(
+  return(   
     <>
-      <DefaultPage></DefaultPage>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/register" element={<Register/>} />
+                <Route path="/login" element={<Login/>} />
+            </Routes>
+        </BrowserRouter>
     </>
   );
 }
