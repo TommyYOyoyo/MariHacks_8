@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const Timer = ({
     id,
     name,
     onRemove,
-    initialDuration = 1800, // 30 minutes in seconds
+    initialDuration = 1800,
     onDurationChange,
 }) => {
     const [seconds, setSeconds] = useState(initialDuration);
@@ -13,7 +13,8 @@ const Timer = ({
     const [isEditingName, setIsEditingName] = useState(false);
     const [isEditingDuration, setIsEditingDuration] = useState(false);
 
-    // Convert seconds to hours, minutes, seconds
+    const audioRef = useRef(null); // 🔔 Audio reference
+
     const hours = Math.floor(seconds / 3600);
     const mins = Math.floor((seconds % 3600) / 60);
     const secs = seconds % 60;
@@ -26,9 +27,21 @@ const Timer = ({
             }, 1000);
         } else if (isRunning && seconds === 0) {
             setIsRunning(false);
+            // 🔔 Play the ringtone!
+            if (audioRef.current) {
+                audioRef.current.currentTime = 0;
+                audioRef.current.play().catch((err) => {
+                    console.warn("Could not play audio:", err);
+                });
+            }
         }
         return () => clearInterval(timer);
     }, [isRunning, seconds]);
+
+    const handleReset = () => {
+        setIsRunning(false);
+        setSeconds(initialDuration);
+    };
 
     const formatTime = () => {
         return [
@@ -288,6 +301,8 @@ const TimerApp = () => {
                 minHeight: "100vh",
             }}
         >
+            {/* 🔔 Audio element */}
+            <audio ref={audioRef} src="/alarm.mp3" preload="auto" />
             <h1 style={{ textAlign: "center", color: "#333", marginBottom: "2rem" }}>
                 Timers
             </h1>
