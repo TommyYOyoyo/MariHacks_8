@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "react-router-dom"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 
@@ -33,11 +34,10 @@ export default function Register() {
     }
 
     return (
-        <div className="defaultPage">
-            <link rel="stylesheet" href="./defaultPage.css"></link>
+        <div className="auth-page">
             <h1 id="title">COLLABILITY</h1>
 
-            <form id="form" onSubmit={handleSubmit}>
+            <form className="auth-form" onSubmit={handleSubmit}>
                 <label>Username</label>
                 <input
                     type="text"
@@ -78,15 +78,8 @@ export default function Register() {
                 </div>
 
                 <div id="options">
-                    <div id="redirects">
-                        <div id="loginRedirect">
-                            <a href="./login">Login</a>
-                        </div>
-                    </div>
-
-                    <div id="rememberMeBox">
-                        <label id="rememberMeLabel">Remember Me</label>
-                        <input type="checkbox" id="rememberMe"></input>
+                    <div className="redirects">
+                        <Link to="/login">Login</Link>
                     </div>
                 </div>
 

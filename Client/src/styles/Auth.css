@@ -66,7 +66,7 @@ body {
     margin: 20px;
 }
 
-#auth-form {
+.auth-form {
     display: flex;
     flex-direction: column;
     padding: 30px;
@@ -78,7 +78,7 @@ body {
     backdrop-filter: blur(10px);
 }
 
-#auth-form label {
+.auth-form label {
     margin: 5px 0;
     color: white;
 }
@@ -130,7 +130,7 @@ body {
     margin: 15px 0;
 }
 
-#loginRedirect a {
+.redirects a {
     font-size: 15px;
     text-decoration: none;
     color: aquamarine;
