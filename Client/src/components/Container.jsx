@@ -1,12 +1,9 @@
-import React from 'react';
-import Board from '../pages/Board';
+import React from "react"
+import Board from "../pages/Board"
 
-import '../styles/style.css';
-
-class Container extends React.Component
-{
+class Container extends React.Component {
     constructor(props) {
-        super(props);
+        super(props)
 
         this.state = {
             color: "#000000",
@@ -27,17 +24,20 @@ class Container extends React.Component
     }
 
     render() {
-
         return (
             <div className="container">
                 <div class="tools-section">
                     <div className="color-picker-container">
-                        Select Brush Color : &nbsp; 
-                        <input type="color" value={this.state.color} onChange={this.changeColor.bind(this)}/>
+                        Select Brush Color : &nbsp;
+                        <input
+                            type="color"
+                            value={this.state.color}
+                            onChange={this.changeColor.bind(this)}
+                        />
                     </div>
 
                     <div className="brushsize-container">
-                        Select Brush Size : &nbsp; 
+                        Select Brush Size : &nbsp;
                         <select value={this.state.size} onChange={this.changeSize.bind(this)}>
                             <option> 5 </option>
                             <option> 10 </option>
@@ -47,7 +47,6 @@ class Container extends React.Component
                             <option> 30 </option>
                         </select>
                     </div>
-
                 </div>
 
                 <div class="board-container">

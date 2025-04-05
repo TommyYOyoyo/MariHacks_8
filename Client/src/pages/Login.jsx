@@ -1,10 +1,11 @@
 import { useState } from "react"
 import axios from "axios"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
-export default function Login() {
+function Login() {
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
+    const navigate = useNavigate()
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -21,19 +22,19 @@ export default function Login() {
                     document.querySelector("#loginWarning").style.color = "red"
                     document.querySelector("#loginWarning").innerHTML = "*User not found"
                 } else {
-                    document.querySelector("#loginWarning").style.display = "none"
-                    console.log(res.data)
                     localStorage.setItem("sessionData", JSON.stringify(res.data))
+                    navigate("/homePage")
                 }
             })
             .catch(err => console.log(err))
     }
 
     return (
-        <div className="auth-page">
+        <div className="defaultPage">
+            <link rel="stylesheet" href="./defaultPage.css"></link>
             <h1 id="title">COLLABILITY</h1>
 
-            <form className="auth-form" onSubmit={handleSubmit}>
+            <form id="form" onSubmit={handleSubmit}>
                 <label>Email</label>
                 <input
                     type="text"
@@ -56,8 +57,10 @@ export default function Login() {
                 </div>
 
                 <div id="options">
-                    <div className="redirects">
-                        <Link to="/register">Register</Link>
+                    <div id="redirects">
+                        <div id="registerRedirect">
+                            <a href="./register">Register</a>
+                        </div>
                     </div>
 
                     <div id="rememberMeBox">
@@ -71,3 +74,5 @@ export default function Login() {
         </div>
     )
 }
+
+export default Login
