@@ -1,5 +1,6 @@
 import React, { useState } from "react"
-import { Link } from "react-router-dom"
+
+import { useNavigate } from "react-router-dom"
 
 export default function Homepage() {
     const [activeTab, setActiveTab] = useState("timer")
@@ -7,6 +8,8 @@ export default function Homepage() {
         name: "John Appleseed",
         avatar: "https://example.com/avatar.jpg"
     })
+
+    const navigate = useNavigate();
 
     const navItems = [
         { id: "timer", icon: "⏰", label: "Timer" },
@@ -28,7 +31,9 @@ export default function Homepage() {
                         <button
                             key={item.id}
                             className={`nav-item ${activeTab === item.id ? "active" : ""}`}
-                            onClick={() => setActiveTab(item.id)}
+                            onClick={() => {
+                                navigate(`${item.id}`)
+                            }}
                         >
                             <span className="nav-icon">{item.icon}</span>
                             <span className="nav-label">{item.label}</span>
