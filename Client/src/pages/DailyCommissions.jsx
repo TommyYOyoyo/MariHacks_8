@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 
-import '../styles/DailyCommissions.css';
-
 export default function DailyCommissions() {
     function getRandomInt(min, max) {
         min = Math.ceil(min)
