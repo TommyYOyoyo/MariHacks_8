@@ -21,8 +21,15 @@ function Avatar() {
   }
 
   return (
-    <div>
+    <div style={{
+      height: "96px",
+      width: "96px"
+    }}>
       <img 
+        style={{
+          height: "96px",
+          width: "96px"
+        }}
         src={avatarURL}
         alt ="Avatar"/>
 
