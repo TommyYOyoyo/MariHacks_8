@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import axios from "axios"
 
+import '../styles/DailyCommissions.css';
+
 export default function DailyCommissions() {
     function getRandomInt(min, max) {
         min = Math.ceil(min)
@@ -27,11 +29,6 @@ export default function DailyCommissions() {
     return (
         <div>
             <header>Today Commission</header>
-            <ul>
-                {users.map(user => (
-                    <li key={user._id}>{user.username}</li>
-                ))}
-            </ul>
             <h4>--- {commissionToComplete} (Not done)</h4>
         </div>
     )

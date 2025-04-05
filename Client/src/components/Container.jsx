@@ -1,7 +1,7 @@
 import React from 'react';
-import Board from '../board/Board';
+import Board from '../pages/Board';
 
-import './style.css';
+import '../styles/style.css';
 
 class Container extends React.Component
 {

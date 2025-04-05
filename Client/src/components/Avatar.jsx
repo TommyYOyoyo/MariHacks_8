@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
-import DefaultAvatar from "../../assets/DefaultPFP.jpg";
-import EditIcon from "../../assets/edit.svg"
+import DefaultAvatar from "../assets/DefaultPFP.jpg";
+import EditIcon from "../assets/edit.svg"
 
 function Avatar() {
   const [avatarURL, setAvatarURL] = useState(DefaultAvatar);
