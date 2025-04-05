@@ -7,6 +7,7 @@ import DailyCommissions from "./pages/DailyCommissions.jsx"
 import StudyTimer from "./pages/StudyTimer.jsx"
 import Container from "./components/Container.jsx"
 import Home from "./pages/Home.jsx"
+import Calendar from "./pages/Calendar.jsx"
 
 const router = createBrowserRouter([
     {
@@ -17,7 +18,8 @@ const router = createBrowserRouter([
             { path: "register", element: <Register /> },
             { path: "daily", element: <DailyCommissions /> },
             { path: "timer", element: <StudyTimer /> },
-            { path: "board", element: <Container /> }
+            { path: "board", element: <Container /> },
+            { path: "calendar", element: <Calendar /> }
         ]
     }
 ])
