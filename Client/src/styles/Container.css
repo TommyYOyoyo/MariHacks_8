@@ -1,5 +1,6 @@
 .container {
-    margin-top: 60px;
+    position: absolute;
+    height: 100%;
     background: linear-gradient(45deg, #03a9f4, #4caf50);
 }
 
