@@ -107,7 +107,7 @@ export default class Board extends React.Component {
 
     render() {
         return (
-            <div class="sketch" id="sketch">
+            <div className="sketch" id="sketch">
                 <canvas className="board" id="board"></canvas>
             </div>
         )
