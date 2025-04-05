@@ -1,11 +1,10 @@
 import { useState } from "react"
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 export default function Login() {
     const [email, setEmail] = useState()
     const [password, setPassword] = useState()
-    const navigate = useNavigate()
 
     const handleSubmit = e => {
         e.preventDefault()
@@ -31,11 +30,10 @@ export default function Login() {
     }
 
     return (
-        <div className="defaultPage">
-            <link rel="stylesheet" href="./defaultPage.css"></link>
+        <div className="auth-page">
             <h1 id="title">COLLABILITY</h1>
 
-            <form id="form" onSubmit={handleSubmit}>
+            <form className="auth-form" onSubmit={handleSubmit}>
                 <label>Email</label>
                 <input
                     type="text"
@@ -58,10 +56,8 @@ export default function Login() {
                 </div>
 
                 <div id="options">
-                    <div id="redirects">
-                        <div id="registerRedirect">
-                            <a href="./register">Register</a>
-                        </div>
+                    <div className="redirects">
+                        <Link to="/register">Register</Link>
                     </div>
 
                     <div id="rememberMeBox">
@@ -70,7 +66,7 @@ export default function Login() {
                     </div>
                 </div>
 
-                <input type="submit" value="Register" id="submitButton"></input>
+                <input type="submit" value="Login" id="submitButton"></input>
             </form>
         </div>
     )
