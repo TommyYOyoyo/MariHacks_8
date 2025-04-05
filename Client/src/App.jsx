@@ -6,10 +6,12 @@ import Register from "./pages/Register.jsx"
 import DailyCommissions from "./pages/DailyCommissions.jsx"
 import StudyTimer from "./pages/StudyTimer.jsx"
 import Container from "./components/Container.jsx"
+import Home from "./pages/Home.jsx"
 
 const router = createBrowserRouter([
     {
         path: "/",
+        element: <Home />,
         children: [
             { path: "login", element: <Login /> },
             { path: "register", element: <Register /> },
