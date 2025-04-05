@@ -23,7 +23,7 @@ export default function Login() {
                     document.querySelector("#loginWarning").innerHTML = "*User not found"
                 } else {
                     localStorage.setItem("sessionData", JSON.stringify(res.data))
-                    navigate("/board")
+                    navigate("/whiteboard")
                 }
             })
             .catch(err => console.log(err))
@@ -33,7 +33,7 @@ export default function Login() {
         <div className="auth-page">
             <h1 id="title">COLLABILITY</h1>
 
-            <form id="auth-form" onSubmit={handleSubmit}>
+            <form className="auth-form" onSubmit={handleSubmit}>
                 <label>Email</label>
                 <input
                     type="text"
@@ -57,7 +57,7 @@ export default function Login() {
 
                 <div id="options">
                     <div className="redirects">
-                        <Link to="./register">Register</Link>
+                        <Link to="/register">Register</Link>
                     </div>
 
                     <div id="rememberMeBox">
