@@ -21,6 +21,18 @@ const userSchema = new mongoose.Schema(
                 type: Boolean,
                 default: false,
             },
+
+            commissions:{
+                type: Array,
+                default: [{name: "Study 1h (Study Timer)", exp: 10}, 
+                    {name: "Read 30 mins (Study Timer)", exp: 5},
+                    {name: "Use whiteboard 30 mins", exp: 5}],
+            },
+
+            commissionToComplete:{
+                type: String,
+                default: ""
+            }
                 // Insert users template var here
         }
 );
