@@ -23,7 +23,8 @@ function Avatar() {
   return (
     <div style={{
       height: "96px",
-      width: "96px"
+      width: "96px",
+      margin: "8px"
     }}>
       <img 
         style={{
@@ -35,6 +36,13 @@ function Avatar() {
 
       <form id="form" encType='multipart/form-data'>
         <button
+          style={{
+            height: "9px",
+            width: "9px",
+            bottom: "12px",
+            right: "14px",
+            borderRadius:"25px"
+          }}
           type='submit'
           onClick={handleImageUpload}>
           <img
