@@ -1,8 +1,14 @@
+<<<<<<< Updated upstream
 import DefaultPage from "./DefaultPage.jsx"
+=======
+
+import DefaultPage from "./defaultPage.jsx";
+>>>>>>> Stashed changes
 
 export default function App() {
   return <DefaultPage></DefaultPage>
 }
+<<<<<<< Updated upstream
 
 /*import { useState } from 'react';
 import reactLogo from './assets/react.svg';
@@ -40,3 +46,5 @@ function App() {
 
 export default App;
 */
+=======
+>>>>>>> Stashed changes

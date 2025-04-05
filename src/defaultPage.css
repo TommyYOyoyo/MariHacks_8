@@ -1,0 +1,149 @@
+@keyframes popUp {
+    0% { opacity: 0; }
+    40% { opacity: 1; }
+    60% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}
+
+@keyframes formAnimation {
+    0% { opacity: 0; display: none; }
+    90% { opacity: 0; display: none; }
+    100% { opacity: 1; backdrop-filter: blur(10px); }
+}
+
+@keyframes buttonAnimation {
+    to { background-color: rgba(0, 85, 131, 0.75); color: white; }
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.defaultPage {
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url("https://images.unsplash.com/photo-1548598187-35e00175d911?q=80&w=3174&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-position: center;
+    background-size: cover;
+
+    font-family: 'Quicksand', sans-serif;
+}
+
+#title {
+    font-size: 100px;
+    color: white;
+    margin: 20px;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    width: 400px;
+    max-height: 580px;
+    backdrop-filter: blur(10px);
+}
+
+#form label {
+    margin: 5px 0;
+    color: white;
+}
+
+#email {
+    width: 94%;
+    padding: 10px;
+    font-size: 15px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+}
+
+.passwordBox {
+    position: relative;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.passwordBox input {
+    width: 94%;
+    padding: 10px;
+    font-size: 15px;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+}
+
+.passwordBox img {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    filter: brightness(0) invert(1);
+    cursor: pointer;
+}
+
+#options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 15px 0;
+}
+
+#redirects a, #forgetPassword button {
+    font-size: 15px;
+    text-decoration: none;
+    color: aquamarine;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+#rememberMeBox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#submitButton {
+    width: 100%;
+    padding: 15px;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#submitButton:hover {
+    animation: buttonAnimation 0.3s linear forwards;
+}
+
+#emailWarning {
+    display: none;
+}
+
+.warning {
+    color: red;
+    font-size: 12px;
+    min-height: 18px;
+    margin: 4px 0;
+}
