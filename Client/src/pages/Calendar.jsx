@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 
-export function Calendar() {
+export default function Calendar() {
     const [currentDate, setCurrentDate] = useState(new Date())
     const [selectedDate, setSelectedDate] = useState(null)
     const [events, setEvents] = useState(() => {
