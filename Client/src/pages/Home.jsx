@@ -1,6 +1,5 @@
 import React, { useState } from "react"
-
-import { useNavigate } from "react-router-dom"
+import { Outlet, Link, useNavigate } from "react-router-dom"
 
 export default function Homepage() {
     const [activeTab, setActiveTab] = useState("timer")
@@ -9,7 +8,7 @@ export default function Homepage() {
         avatar: "https://example.com/avatar.jpg"
     })
 
-    const navigate = useNavigate();
+    const navigate = useNavigate()
 
     const navItems = [
         { id: "timer", icon: "⏰", label: "Timer" },
@@ -42,23 +41,37 @@ export default function Homepage() {
                 </nav>
             </aside>
 
-            <main className="content-area">
-                <div className="user-profile">
-                    <img src={user.avatar} alt="User avatar" className="user-avatar" />
-                    <span className="user-name">{user.name}</span>
-                </div>
+            <div className="content-area">
+                <header className="header">
+                    <span className="subtitle">
+                        {(() => {
+                            switch (activeTab) {
+                                case "timer":
+                                    return "Timer View"
+                                case "calendar":
+                                    return "Calendar View"
+                                case "mission":
+                                    return "Mission View"
+                                case "whiteboard":
+                                    return "Whiteboard View"
+                                case "chat":
+                                    return "Chat View"
+                                case "lobby":
+                                    return "Lobby Selector"
+                            }
+                        })()}
+                    </span>
 
-                <div className="content-view">
-                    {activeTab === "timer" && <div className="tab-content">Timer View</div>}
-                    {activeTab === "calendar" && <div className="tab-content">Calendar View</div>}
-                    {activeTab === "mission" && <div className="tab-content">Mission View</div>}
-                    {activeTab === "whiteboard" && (
-                        <div className="tab-content">Whiteboard View</div>
-                    )}
-                    {activeTab === "chat" && <div className="tab-content">Chat View</div>}
-                    {activeTab === "lobby" && <div className="tab-content">Lobby Selector</div>}
-                </div>
-            </main>
+                    <span className="user-profile">
+                        <img src={user.avatar} alt="User avatar" className="user-avatar" />
+                        <span className="user-name">{user.name}</span>
+                    </span>
+                </header>
+
+                <main>
+                    <Outlet />
+                </main>
+            </div>
         </div>
     )
 }

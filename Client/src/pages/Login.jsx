@@ -1,6 +1,6 @@
 import { useState } from "react"
 import axios from "axios"
-import { useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function Login() {
     const [email, setEmail] = useState()
@@ -23,18 +23,17 @@ export default function Login() {
                     document.querySelector("#loginWarning").innerHTML = "*User not found"
                 } else {
                     localStorage.setItem("sessionData", JSON.stringify(res.data))
-                    navigate("/homePage")
+                    navigate("/board")
                 }
             })
             .catch(err => console.log(err))
     }
 
     return (
-        <div className="defaultPage">
-            <link rel="stylesheet" href="./defaultPage.css"></link>
+        <div className="auth-page">
             <h1 id="title">COLLABILITY</h1>
 
-            <form id="form" onSubmit={handleSubmit}>
+            <form id="auth-form" onSubmit={handleSubmit}>
                 <label>Email</label>
                 <input
                     type="text"
@@ -57,10 +56,8 @@ export default function Login() {
                 </div>
 
                 <div id="options">
-                    <div id="redirects">
-                        <div id="registerRedirect">
-                            <a href="./register">Register</a>
-                        </div>
+                    <div className="redirects">
+                        <Link to="./register">Register</Link>
                     </div>
 
                     <div id="rememberMeBox">
