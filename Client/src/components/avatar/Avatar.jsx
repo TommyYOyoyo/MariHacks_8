@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
-import DefaultAvatar from "../assets/DefaultPFP.jpg";
-import EditIcon from "../assets/edit.svg";
+import DefaultAvatar from "../../assets/DefaultPFP.jpg";
+import EditIcon from "../../assets/edit.svg"
 
 function Avatar() {
   const [avatarURL, setAvatarURL] = useState(DefaultAvatar);
@@ -22,32 +22,40 @@ function Avatar() {
 
   return (
     <div style={{
-      height: "96px",
-      width: "96px",
+      position:'relative',
+      
       margin: "8px"
     }}>
       <img 
         style={{
-          height: "96px",
-          width: "96px"
+          height: '96px',
+          width: '96px',
+          borderRadius:'9999px'
         }}
         src={avatarURL}
         alt ="Avatar"/>
 
       <form id="form" encType='multipart/form-data'>
+        {/* <input type='image' src={EditIcon} onClick={handleImageUpload} style={{
+          height: '25px',
+          width: '25px'
+        }} /> */}
         <button
           style={{
-            height: "9px",
-            width: "9px",
-            bottom: "12px",
-            right: "14px",
-            borderRadius:"25px"
+            height: '25px',
+            width: '25px',
+            alignSelf:'center',
+            position: 'absolute',
+            borderRadius:'9999px'
           }}
           type='submit'
           onClick={handleImageUpload}>
           <img
             src={EditIcon}
-            alt="Edit"/>
+            alt="Edit"
+            style={{
+              objectFit:'cover'
+            }}/>
         </button>
         <input 
           type="file"

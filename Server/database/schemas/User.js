@@ -17,7 +17,11 @@ const userSchema = new mongoose.Schema(
                 default: [],
             },
 
-            // Insert users template var here
+            isCommissionFinish: {
+                type: Boolean,
+                default: false,
+            },
+                // Insert users template var here
         }
 );
 
