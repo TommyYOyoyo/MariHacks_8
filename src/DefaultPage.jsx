@@ -2,13 +2,6 @@ import './defaultPage.css';
 import eyeImg from './assets/eye.png';
 
 function DefaultPage() {
-<<<<<<< Updated upstream
-  return (
-    <div id="defaultPage">
-      <h1>Collability</h1>
-    </div>
-  )
-=======
     return (
         <div class="defaultPage">
             <link rel="stylesheet" href="./defaultPage.css"></link>
@@ -56,7 +49,6 @@ function DefaultPage() {
             </form>
         </div>
     );
->>>>>>> Stashed changes
 }
 
 export default DefaultPage
