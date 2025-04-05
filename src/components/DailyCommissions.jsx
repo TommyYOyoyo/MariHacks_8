@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./DailyCommissions.css"
 
 function DailyCommissions()
@@ -10,7 +11,7 @@ function DailyCommissions()
 
     let isCommissionFinish = false;
     const commissions = [{commissionName: "Study 1h with the study timer", commissionExp: 10}];
-    const commissionToComplete = commissions[getRandomInt(0, commissions.length-1)].commissionName;
+    const [commissionToComplete, setCommissionToComplete] = useState(commissions[getRandomInt(0, commissions.length-1)].commissionName);
     return(
         <div>
             <header>
