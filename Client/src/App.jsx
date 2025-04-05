@@ -1,4 +1,3 @@
-import DefaultPage from "./components/defaultPage/DefaultPage.jsx"
 import Register from "./components/defaultPage/Register.jsx";
 import Login from "./components/defaultPage/Login.jsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
