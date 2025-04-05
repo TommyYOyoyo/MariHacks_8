@@ -1,28 +1,50 @@
 @keyframes popUp {
-    0% { opacity: 0; }
-    40% { opacity: 1; }
-    60% { opacity: 1; }
-    100% { opacity: 0; display: none; }
+    0% {
+        opacity: 0;
+    }
+    40% {
+        opacity: 1;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
 }
 
 @keyframes formAnimation {
-    0% { opacity: 0; display: none; }
-    90% { opacity: 0; display: none; }
-    100% { opacity: 1; backdrop-filter: blur(10px); }
+    0% {
+        opacity: 0;
+        display: none;
+    }
+    90% {
+        opacity: 0;
+        display: none;
+    }
+    100% {
+        opacity: 1;
+        backdrop-filter: blur(10px);
+    }
 }
 
 @keyframes buttonAnimation {
-    to { background-color: rgba(0, 85, 131, 0.75); color: white; }
+    to {
+        background-color: rgba(0, 85, 131, 0.75);
+        color: white;
+    }
 }
 
-html, body {
+html,
+body {
     margin: 0;
     padding: 0;
     width: 100%;
     height: 100%;
 }
 
-.defaultPage {
+.auth-page {
     width: 100%;
     height: 100vh;
 
@@ -35,7 +57,7 @@ html, body {
     background-position: center;
     background-size: cover;
 
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
 }
 
 #title {
@@ -44,7 +66,7 @@ html, body {
     margin: 20px;
 }
 
-#form {
+#auth-form {
     display: flex;
     flex-direction: column;
     padding: 30px;
@@ -56,12 +78,13 @@ html, body {
     backdrop-filter: blur(10px);
 }
 
-#form label {
+#auth-form label {
     margin: 5px 0;
     color: white;
 }
 
-#email, #username {
+#email,
+#username {
     width: 94%;
     padding: 10px;
     font-size: 15px;
@@ -107,7 +130,7 @@ html, body {
     margin: 15px 0;
 }
 
-#redirects a {
+#loginRedirect a {
     font-size: 15px;
     text-decoration: none;
     color: aquamarine;
