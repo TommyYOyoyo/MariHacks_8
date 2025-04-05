@@ -1,7 +1,7 @@
 import React from "react"
 import io from "socket.io-client"
 
-class Board extends React.Component {
+export default class Board extends React.Component {
     timeout
     socket = io("http://localhost:8080", {
         transports: ["websocket", "polling"]
@@ -113,5 +113,3 @@ class Board extends React.Component {
         )
     }
 }
-
-export default Board

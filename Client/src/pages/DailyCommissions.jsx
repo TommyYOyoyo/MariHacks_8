@@ -25,9 +25,9 @@ export default function DailyCommissions() {
     //     commissions[getRandomInt(0, commissions.length - 1)].commissionName
     // )
     return (
-        <div>
+        <div id="daily-commission">
             <header>Today Commission</header>
-            
+
             <h4>--- {"Study 1h (Study Timer)"} (Not done)</h4>
         </div>
     )
